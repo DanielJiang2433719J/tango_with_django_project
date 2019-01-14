@@ -15,6 +15,11 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+## Dynamic file address to template directory using BASE_DIR in header
+TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
+
+## Dynamic address to static files directory
+STATIC_DIR = os.path.join(BASE_DIR, 'static')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
@@ -55,7 +60,7 @@ ROOT_URLCONF = 'tango_with_django_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [TEMPLATE_DIR, ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -67,6 +72,15 @@ TEMPLATES = [
         },
     },
 ]
+
+#################################################
+#############    STATIC    ######################
+#################################################
+
+STATIC_URL = '/static/'
+
+## Data structure for all paths to static files.
+STATICFILES_DIRS = [STATIC_DIR, ]
 
 WSGI_APPLICATION = 'tango_with_django_project.wsgi.application'
 
