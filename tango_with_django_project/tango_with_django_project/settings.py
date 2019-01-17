@@ -21,8 +21,12 @@ TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
 ## Dynamic address to static files directory
 STATIC_DIR = os.path.join(BASE_DIR, 'static')
 
-MEDIA_DIR = os.path.join(BASE_DIR, 'media')
-
+MEDIA_DIR = os.path.join(BASE_DIR   , 'media')
+print("Directory Paths")
+print(os.path.abspath(__file__))
+print(os.path.dirname(os.path.abspath(__file__)))
+print(BASE_DIR)
+print(MEDIA_DIR)
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
@@ -71,7 +75,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.media',
-                
+
             ],
         },
     },
