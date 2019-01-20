@@ -10,5 +10,6 @@ from rango import views
 
 urlpatterns = [
     url(r'^$', views.index, name='index'),
+    url(r'^index$', views.index, name='index'),
     url(r'^about$', views.about, name = 'about'),
-] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+]
