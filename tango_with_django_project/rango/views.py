@@ -21,7 +21,7 @@ def about(request):
 #    return HttpResponse("Rango says here is the about page.\
 #    <br> <a href = '/rango'> Back home </a>")
 
-def show_category(request, category_name_url):
+def show_category(request, category_name_slug):
     # Context dict to pass to template renderer
     context_dict = {}
 
@@ -51,4 +51,3 @@ def show_category(request, category_name_url):
         context_dict['pages'] = None
 
     return render(request, 'rango/category.html', context_dict)
-    
