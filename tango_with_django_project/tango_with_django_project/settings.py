@@ -15,7 +15,18 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+## Dynamic file address to template directory using BASE_DIR in header
+TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
 
+## Dynamic address to static files directory
+STATIC_DIR = os.path.join(BASE_DIR, 'static')
+
+MEDIA_DIR = os.path.join(BASE_DIR   , 'media')
+#print("Directory Paths")
+#print(os.path.abspath(__file__))
+#print(os.path.dirname(os.path.abspath(__file__)))
+#print(BASE_DIR)
+#print(MEDIA_DIR)
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
@@ -27,7 +38,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -37,6 +47,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rango',
 ]
 
 MIDDLEWARE = [
@@ -54,7 +65,7 @@ ROOT_URLCONF = 'tango_with_django_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [TEMPLATE_DIR, ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -62,13 +73,30 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media',
+
             ],
         },
     },
 ]
 
+#################################################
+#############    STATIC    ######################
+#################################################
+
+STATIC_URL = '/static/'
+
+## Data structure for all paths to static files.
+STATICFILES_DIRS = [STATIC_DIR, ]
+
 WSGI_APPLICATION = 'tango_with_django_project.wsgi.application'
 
+#################################################
+#############    DYNAMIC    #####################
+#################################################
+
+MEDIA_ROOT = MEDIA_DIR
+MEDIA_URL = '/media/'
 
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
