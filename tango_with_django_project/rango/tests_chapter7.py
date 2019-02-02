@@ -51,7 +51,8 @@ class Chapter7LiveServerTestCase(StaticLiveServerTestCase):
         categories_link = self.browser.find_elements_by_partial_link_text('Add a New Category')
         if len(categories_link) == 0:
             categories_link = self.browser.find_elements_by_partial_link_text('Add New Category')
-
+        print('test_form_is_saving_new_category')
+        print(categories_link)
         categories_link[0].click()
 
         # Types new category name
@@ -224,7 +225,7 @@ class Chapter7ViewTests(TestCase):
     def test_add_page_form_is_displayed_correctly(self):
         # Create categories
         categories = test_utils.create_categories()
-
+        print("AFHALDHLASDHASLDHKA")
         for category in categories:
             # Access add category page
             try:
@@ -236,7 +237,8 @@ class Chapter7ViewTests(TestCase):
                     response = self.client.get(reverse('rango:add_page', args=[category.slug]))
                 except:
                     return False
-
+            print("Response:")
+            print(response.content)
             # Check form in response context is instance of CategoryForm
             self.assertTrue(isinstance(response.context['form'], PageForm))
 

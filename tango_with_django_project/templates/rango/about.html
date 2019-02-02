@@ -11,7 +11,8 @@
     <h1>This tutorial has been put together by
       Daniel Jiang</h1>
     <div>
-      <a href="index">Home </a><br />
+      <a href="{$ url 'index' %}">Home </a><br />
+      <! or{$ url 'rango.views.index' %} >
       <img src="{% static "images/django.jpg" %}"
         alt = "Picture of Django" /> <br />
       <img src="{{MEDIA_URL}}cat.jpg"
