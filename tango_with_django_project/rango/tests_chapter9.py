@@ -455,7 +455,7 @@ class Chapter9ViewTests(TestCase):
         #Check form display
         #Header
         self.assertIn('<h1>Login to Rango</h1>'.lower(), response.content.decode('ascii').lower())
-        
+
         #Username label and input text
         self.assertIn('Username:', response.content.decode('ascii'))
         self.assertIn('input type="text"', response.content.decode('ascii'))
