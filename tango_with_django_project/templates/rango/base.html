@@ -24,6 +24,7 @@
       <ul>
       {% if user.is_authenticated %}
         <li><a href="{% url 'rango:restricted' %}">Restricted Page</a></li>
+        <li><a href = "{% url 'rango:add_category' %}">Add a New Category</a></li>
         <li><a href="{% url 'rango:logout' %}">Logout</a></li>
       {% else %}
 
@@ -31,7 +32,7 @@
         <li><a href = "{% url 'rango:login' %}">Sign In</a></li>
       {% endif %}
 
-        <li><a href = "{% url 'rango:add_category' %}">Add a New Category</a></li>
+      <!-- Always show these links -->
         <li><a href = "{% url 'rango:about' %}">About</a></li>
         <li><a href = "{% url 'index' %}">Index</a></li>
       </ul>
